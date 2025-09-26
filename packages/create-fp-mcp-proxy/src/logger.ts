@@ -4,25 +4,25 @@ import { join } from "node:path";
 import pino from "pino";
 
 /**
- * Get the OS-appropriate log directory for create-mcp-lite
+ * Get the OS-appropriate log directory for create-fp-mcp-proxy
  */
 function getLogDirectory(): string {
   const home = homedir();
 
   switch (platform()) {
     case "darwin": // macOS
-      return join(home, "Library", "Logs", "create-mcp-lite");
+      return join(home, "Library", "Logs", "create-fp-mcp-proxy");
     case "win32": {
       // Windows
       const localAppData =
         process.env.LOCALAPPDATA || join(home, "AppData", "Local");
-      return join(localAppData, "create-mcp-lite", "Logs");
+      return join(localAppData, "create-fp-mcp-proxy", "Logs");
     }
     default: {
       // Linux and others
       const xdgStateHome =
         process.env.XDG_STATE_HOME || join(home, ".local", "state");
-      return join(xdgStateHome, "create-mcp-lite", "logs");
+      return join(xdgStateHome, "create-fp-mcp-proxy", "logs");
     }
   }
 }
@@ -46,7 +46,7 @@ function getLogFileName(): string {
   const now = new Date();
   const timestamp = now.toISOString().replace(/[:.]/g, "-").slice(0, 19); // YYYY-MM-DDTHH-MM-SS
   const pid = process.pid;
-  return `create-mcp-lite-${timestamp}-${pid}.log`;
+  return `create-fp-mcp-proxy-${timestamp}-${pid}.log`;
 }
 
 /**
