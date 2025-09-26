@@ -1,0 +1,11 @@
+{
+  "references": [
+    {
+      "path": "./packages/create-fp-mcp-proxy"
+    },
+    {
+      "path": "./templates/proxy"
+    }
+  ],
+  "files": []
+}

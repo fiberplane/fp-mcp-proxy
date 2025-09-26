@@ -1,0 +1,29 @@
+{
+  "name": "mcp-monorepo",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "playground",
+    "examples/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fiberplane/mcp.git"
+  },
+  "homepage": "https://github.com/fiberplane/mcp",
+  "scripts": {
+    "build": "bun run --filter=* build",
+    "typecheck": "bun run --filter=* typecheck",
+    "lint": "biome check --write .",
+    "test": "bun run --filter=* test",
+    "test:watch": "bun run --filter=* test:watch",
+    "changeset": "changeset"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.2.4",
+    "@changesets/cli": "^2.29.7",
+    "pkg-pr-new": "^0.0.59",
+    "typescript": "^5.9.2"
+  }
+}

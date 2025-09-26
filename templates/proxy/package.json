@@ -1,0 +1,24 @@
+{
+	"name": "@fp-mcp-proxy-templates/proxy",
+	"version": "1.0.0",
+	"private": true,
+	"scripts": {
+		"auth": "fiberplane-cli auth login",
+		"deploy": "fiberplane-cli deploy",
+		"auth:preview": "FIBERPLANE_API_URL=https://preview.fiberplane.io FIBERPLANE_AUTH_URL=https://auth-preview.fiberplane.io fiberplane-cli auth login",
+		"deploy:preview": "FIBERPLANE_API_URL=https://preview.fiberplane.io FIBERPLANE_AUTH_URL=https://auth-preview.fiberplane.io fiberplane-cli deploy",
+		"format": "biome format --write .",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@fiberplane/cli": "^0.2.1",
+		"hono": "^4.9.6"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.2.4",
+		"@cloudflare/workers-types": "^4.20250904.0"
+	},
+	"trustedDependencies": [
+		"@biomejs/biome"
+	]
+}
