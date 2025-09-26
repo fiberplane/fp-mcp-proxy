@@ -1,14 +1,11 @@
 #!/usr/bin/env node
 import { intro, isCancel, outro } from "@clack/prompts";
 import pico from "picocolors";
-import {
-  actionAIAssistant,
-  promptAIAssistant,
-} from "./actions/ai-assistant/ai-assistant";
 import { actionDependencies, promptDependencies } from "./actions/dependencies";
 import { actionDeploy, promptDeploy } from "./actions/deploy";
 import { actionGit, promptGit } from "./actions/git";
 import { promptPath } from "./actions/path";
+import { promptProxyUrl } from "./actions/proxy";
 import { actionTemplate } from "./actions/template";
 import { FIBERPLANE_TITLE } from "./const";
 import { initContext } from "./context";
@@ -20,13 +17,13 @@ async function main() {
   console.log(pico.cyan(FIBERPLANE_TITLE));
   console.log("");
 
-  intro("🚀 create-mcp-lite");
+  intro("🚀 create-fp-mcp-proxy");
 
   const context = initContext();
 
   const prompts = [
     promptPath,
-    promptAIAssistant,
+    promptProxyUrl,
     promptDependencies,
     promptGit,
     promptDeploy,
@@ -49,7 +46,6 @@ async function main() {
 
   const actions = [
     actionTemplate,
-    actionAIAssistant,
     actionDependencies,
     actionGit,
     actionDeploy,
@@ -67,7 +63,7 @@ async function main() {
     }
   }
 
-  outro(`🚀 MCP project created successfully in ${context.path}!
+  outro(`🚀 MCP Proxy project created successfully in ${context.path}!
 
 ${pico.cyan("Next steps:")}
 

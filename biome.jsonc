@@ -26,13 +26,14 @@
   "overrides": [
     {
       "includes": [
-        "packages/core/**/*.test.ts",
-        "packages/create-mcp-lite/**/*.test.ts"
+        "packages/create-fp-mcp-proxy/**/*.test.ts"
       ],
       "linter": {
         "rules": { "suspicious": { "noExplicitAny": "warn" } }
       }
     }
   ],
-  "files": { "includes": ["**", "!**/dist"] }
+  "files": {
+    "includes": ["**", "!**/dist", "!**/templates"]
+  }
 }
