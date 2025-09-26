@@ -4,9 +4,9 @@ import { proxy } from "hono/proxy";
 const app = new Hono<{ Bindings: { PROXY_URL: string } }>();
 
 app.all("*", (c) => {
-	const PROXY_URL = c.env.PROXY_URL;
+	const PROXY_URL = c.env.PROXY_URL || "$$PROXY_URL$$";
 	const targetBaseUrl = toUrl(PROXY_URL);
-	if (!PROXY_URL || !targetBaseUrl) {
+	if (PROXY_URL.endsWith("PROXY_URL$$") || !targetBaseUrl) {
 		return c.json({ error: "Server configuration error" }, 500);
 	}
 
