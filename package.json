@@ -3,9 +3,7 @@
   "private": true,
   "type": "module",
   "workspaces": [
-    "packages/*",
-    "playground",
-    "examples/*"
+    "packages/*"
   ],
   "repository": {
     "type": "git",
