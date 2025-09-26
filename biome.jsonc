@@ -25,9 +25,7 @@
   },
   "overrides": [
     {
-      "includes": [
-        "packages/create-fp-mcp-proxy/**/*.test.ts"
-      ],
+      "includes": ["packages/create-fp-mcp-proxy/**/*.test.ts"],
       "linter": {
         "rules": { "suspicious": { "noExplicitAny": "warn" } }
       }

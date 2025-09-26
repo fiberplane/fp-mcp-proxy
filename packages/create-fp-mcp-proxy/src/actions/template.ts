@@ -1,11 +1,11 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
-import { basename, join } from "node:path";
+import { join } from "node:path";
 import { spinner } from "@clack/prompts";
 import { downloadTemplate } from "giget";
 import pico from "picocolors";
 import type { Context } from "../context";
 
-const MCP_TEMPLATE_URL = "github:brettimus/moncy-bars/apps/echo"; // This would be the actual template URL
+const PROXY_TEMPLATE_URL = "github:fiberplane/fp-mcp-proxy/templates/proxy";
 
 export async function actionTemplate(context: Context) {
   if (!context.path) {
@@ -13,7 +13,7 @@ export async function actionTemplate(context: Context) {
   }
 
   const s = spinner();
-  s.start("Creating MCP project from template...");
+  s.start("Creating MCP Proxy project from template...");
 
   try {
     // Ensure the directory exists
@@ -21,8 +21,8 @@ export async function actionTemplate(context: Context) {
       mkdirSync(context.path, { recursive: true });
     }
 
-    // Download the MCP template
-    await downloadTemplate(MCP_TEMPLATE_URL, {
+    // Download the proxy template
+    await downloadTemplate(PROXY_TEMPLATE_URL, {
       dir: context.path,
       force: true,
     });
@@ -34,8 +34,8 @@ export async function actionTemplate(context: Context) {
         const packageJsonContent = readFileSync(packageJsonPath, "utf-8");
         const packageJson = JSON.parse(packageJsonContent);
 
-        // Set the name to the basename of the path (project directory name)
-        packageJson.name = basename(context.path);
+        // Set the name to the user-provided project name
+        packageJson.name = context.name;
 
         // Write back the updated package.json
         writeFileSync(
@@ -50,7 +50,14 @@ export async function actionTemplate(context: Context) {
       }
     }
 
-    s.stop(`${pico.green("✓")} MCP template downloaded successfully`);
+    // Create .env.example file with the proxy URL
+    if (context.proxyUrl) {
+      const envExamplePath = join(context.path, ".env.example");
+      const envContent = `PROXY_URL=${context.proxyUrl}\n`;
+      writeFileSync(envExamplePath, envContent);
+    }
+
+    s.stop(`${pico.green("✓")} Proxy template downloaded successfully`);
   } catch (error) {
     s.stop(`${pico.red("✗")} Failed to download template`);
     throw error;

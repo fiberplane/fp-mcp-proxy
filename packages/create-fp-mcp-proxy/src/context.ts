@@ -1,5 +1,5 @@
 import { PROJECT_NAME } from "./const";
-import type { AIAssistant, Flags } from "./types";
+import type { Flags } from "./types";
 import { getPackageManager } from "./utils";
 
 export interface Context {
@@ -8,7 +8,7 @@ export interface Context {
   name: string;
   path?: string;
   description?: string;
-  aiAssistant?: AIAssistant;
+  proxyUrl?: string;
   flags: Flags;
   fpMcpServerEnabled: boolean;
   deploymentUrl?: string;

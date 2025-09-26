@@ -44,12 +44,7 @@ async function main() {
     }
   }
 
-  const actions = [
-    actionTemplate,
-    actionDependencies,
-    actionGit,
-    actionDeploy,
-  ];
+  const actions = [actionTemplate, actionDependencies, actionGit, actionDeploy];
 
   for (const action of actions) {
     const result = await action(context);

@@ -1,10 +1,3 @@
-export type AIAssistant =
-  | "cursor"
-  | "claude-code"
-  | "vscode"
-  | "windsurf"
-  | "none";
-
 export type Flags = Array<
   "install-dependencies" | "initialize-git" | "deploy-fiberplane"
 >;

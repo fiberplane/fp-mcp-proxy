@@ -26,12 +26,12 @@
     ".gitignore"
   ],
   "bin": {
-    "create-mcp-lite": "dist/index.js"
+    "create-fp-mcp-proxy": "dist/index.js"
   },
   "author": "Fiberplane<info@fiberplane.com>",
   "license": "MIT",
   "repository": {
-    "url": "https://github.com/fiberplane/mcp/",
+    "url": "https://github.com/fiberplane/fp-mcp-proxy/",
     "type": "git"
   },
   "dependencies": {
