@@ -1,8 +1,8 @@
 {
   "name": "create-fp-mcp-proxy",
   "type": "module",
-  "version": "0.0.4",
-  "description": "An interactive CLI to create MCP (Model Context Protocol) projects with Fiberplane",
+  "version": "0.0.5",
+  "description": "An interactive CLI to create and deploy an MCP proxy on Fiberplane",
   "scripts": {
     "build": "bun run scripts/build.ts",
     "build:types": "tsc --project tsconfig.build.json --outDir dist/types --rootDir src",
