@@ -1,5 +1,5 @@
 {
-  "name": "mcp-monorepo",
+  "name": "fp-mcp-proxy-monorepo",
   "private": true,
   "type": "module",
   "workspaces": [
