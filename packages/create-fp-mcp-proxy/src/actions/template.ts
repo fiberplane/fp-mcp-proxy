@@ -50,6 +50,25 @@ export async function actionTemplate(context: Context) {
       }
     }
 
+    // Replace $$PROXY_URL$$ placeholder in src/index.ts with user's proxy URL
+    if (context.proxyUrl) {
+      const srcIndexPath = join(context.path, "src", "index.ts");
+      if (existsSync(srcIndexPath)) {
+        try {
+          const srcContent = readFileSync(srcIndexPath, "utf-8");
+          const updatedContent = srcContent.replace(
+            /\$\$PROXY_URL\$\$/g,
+            context.proxyUrl,
+          );
+          writeFileSync(srcIndexPath, updatedContent);
+        } catch (_error) {
+          console.warn(
+            `${pico.yellow("⚠")} Could not update src/index.ts with proxy URL`,
+          );
+        }
+      }
+    }
+
     // Create .env.example file with the proxy URL
     if (context.proxyUrl) {
       const envExamplePath = join(context.path, ".env.example");
