@@ -1,7 +1,7 @@
 {
   "name": "create-fp-mcp-proxy",
   "type": "module",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "An interactive CLI to create and deploy an MCP proxy on Fiberplane",
   "scripts": {
     "build": "bun run scripts/build.ts",
