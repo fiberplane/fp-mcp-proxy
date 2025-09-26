@@ -17,10 +17,10 @@ app.all("*", (c) => {
 	const targetUrl = new URL(requestPath, targetBaseUrl).toString();
 
 	return proxy(targetUrl, {
-		...c.req, // optional, specify only when forwarding all the request data (including credentials) is necessary.
+		...c.req, // this means we are forwarding all the request data (including credentials)
 		headers: {
 			...c.req.header(),
-			// Examples:
+			// To override headers, you can specify here:
 			//
 			// 'X-Forwarded-For': '127.0.0.1',
 			// 'X-Forwarded-Host': c.req.header('host'),
