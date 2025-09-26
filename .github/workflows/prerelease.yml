@@ -52,9 +52,9 @@ jobs:
               env:
                   NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-            - name: Publish CLI package (create-mcp-lite)
+            - name: Publish CLI package (create-fp-mcp-proxy)
               if: steps.changesets.outputs.hasCliChangesets == 'true'
               run: |
-                cd packages/create-mcp-lite && bun publish --tag canary
+                cd packages/create-fp-mcp-proxy && bun publish --tag canary
               env:
                   NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}

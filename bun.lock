@@ -14,7 +14,7 @@
       "name": "create-fp-mcp-proxy",
       "version": "0.0.4",
       "bin": {
-        "create-mcp-lite": "dist/index.js",
+        "create-fp-mcp-proxy": "dist/index.js",
       },
       "dependencies": {
         "@clack/core": "^0.3.4",
