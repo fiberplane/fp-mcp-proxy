@@ -9,6 +9,7 @@ export interface Context {
   path?: string;
   description?: string;
   proxyUrl?: string;
+  deploymentEnvironment?: "prod" | "preview";
   flags: Flags;
   fpMcpServerEnabled: boolean;
   deploymentUrl?: string;
